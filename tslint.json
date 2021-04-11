@@ -1,0 +1,39 @@
+{
+  "extends": "tslint:recommended",
+  "linterOptions": {
+    "exclude": [
+      "**/node_modules/**/*",
+      "**/build/**/*"
+    ]
+  },
+  "rules": {
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "arrow-return-shorthand": [true, "multiline"],
+    "ban-types": {
+      "options": [
+        ["Object", "Avoid using the `Object` type. Did you mean `object`?"],
+        ["Boolean", "Avoid using the `Boolean` type. Did you mean `boolean`?"],
+        ["Number", "Avoid using the `Number` type. Did you mean `number`?"],
+        ["String", "Avoid using the `String` type. Did you mean `string`?"],
+        ["Symbol", "Avoid using the `Symbol` type. Did you mean `symbol`?"]
+      ]
+    },
+    "max-file-line-count": [true, 250],
+    "max-line-length": [true, {"limit": 120, "ignore-pattern": "^import |^export {(.*?)}"}],
+    "no-default-export": true,
+    "no-redundant-jsdoc": true,
+    "no-shadowed-variable": false,
+    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-sort-keys": false,
+    "prefer-const": [true, {"destructuring": "all"}],
+    "prefer-function-over-method": true,
+    "quotemark": [true, "single", "jsx-double",  "avoid-escape", "avoid-template"],
+    "semicolon": [true, "always", "strict-bound-class-methods"],
+    "variable-name": [true, "allow-snake-case", "allow-leading-underscore"]
+  },
+  "jsRules": {
+    "max-line-length": { "options": [120] },
+    "object-literal-sort-keys": false,
+    "quotemark": [true, "single", "jsx-double"]
+  }
+}

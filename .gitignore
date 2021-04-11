@@ -1,0 +1,8 @@
+report/*.*
+report/snapshots/*
+node_modules/
+build/
+
+!report/.gitkeep
+!report/snapshots/.gitkeep
+debug.log

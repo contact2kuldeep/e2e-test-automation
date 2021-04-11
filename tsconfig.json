@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "outDir": "build/",
+    "paths": {
+      "common-steps/*": [ "common-steps/*" ],
+      "components/*": [ "components/*" ],
+      "pages/*": [ "pages/*" ],
+      "utils/*": [ "utils/*" ]
+    },
+    "sourceMap": true,
+    "strict": true,
+    "lib": ["es6", "dom", "es2017"],
+    "target": "es6",
+    "types": [
+      "node",
+      "jasmine",
+      "@wdio/sync",
+      "moment"
+    ],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": false
+  },
+  "exclude": ["node_modules", "build"]
+}

@@ -1,0 +1,10 @@
+{
+  "browserStack": {
+    "username": "kuldeepsingh23",
+    "accessKey": "wqmr4kzS4xQDFSESxeKv"
+  },
+  "vasTestAutoEnvironment": {
+    "username": "",
+    "password": ""
+  }
+}
