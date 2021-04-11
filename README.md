@@ -2,10 +2,28 @@
 
 ## Installation
 
-* Node is required
+* [Node](https://nodejs.org/en/) is required
 * `npm install`
 
-## Webdriver Feature Execution
+## Features
+* Run any test to cross platform and cross browser version. 
+* Scale your test execution on cloud with [Real Devices](https://www.browserstack.com/docs/onboarding/nodejs/getting-started#introduction) 
+
+## Screens
+* Run you test against cross platform and cross browser:  
+![Local screen](./media/TC-running.jpg)
+
+* Consolidate output:  
+![Local screen](./media/result.jpg)
+
+
+* BrowserStack Reporting-1: List of all the test execution along with list of devices, browser and their version, execution time and status. (You may notice, I have executed the test in Chrome version 89.0 as well as 75.0)
+![Local screen](./media/BS-report-1.jpg)
+
+* BrowserStack Reporting-2: includes video recording of each execution, text logs with screenshot, console logs, Network logs. 
+![Local screen](./media/BS-report-2.jpg)
+
+
 
 ### Run tests from local machine on BrowserStack
 
@@ -52,6 +70,7 @@ Built on the JavaScript stack using:
 * [WebdriverIO](http://webdriver.io/) - runs Chrome in automation mode
 * [Jasmine](https://jasmine.github.io/) - test runner and assertion library
 * [Mochaawesome Report Generator](http://webdriver.io/guide/reporters/mochawesome.html) - generates reports from Webdriver JSON output using a utility called marge
+* [BrowserStack](https://www.browserstack.com/) - to execute the test in any specific platform and browser versions
 
 ## Reporting
 
@@ -61,27 +80,22 @@ Generating the HTML report requires an additional step:
 
 * `npm run report` - this will convert the JSON file to a HTML report with mochawesome and marge.
 
+## BrowserStack Reporting
+
+After running the tests Webdriver will generate a JSON file in the folder `report`.
+
+
 ## Development
+---
 
-### Configuration
+| Configuration | Description    |
+| -------- | ----------------------------------------- |
+| Typescript    | see `tsconfig.json`   |
+| TSLint      | see `tslint.json`       |
+| Prettier | See the `prettier` key in package.json  |
+| wdio (Webdriver.io) | Folder: ./wdio/*.config.js  |
+||
 
-#### wdio (Webdriver.io) configuration
-
-* Folder: ./config
-* File: ./config/base.conf.js - base config file
-* Other files will import the base.conf.js and can be used in npm scripts.
-
-#### Typescript
-
-* see `tsconfig.json`
-
-#### TSLint
-
-* see `tslint.json`
-
-#### Prettier
-
-* See the `prettier` key in package.json
 
 ### Naming Conventions
 
