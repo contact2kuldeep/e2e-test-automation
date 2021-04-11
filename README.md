@@ -13,7 +13,7 @@
 * Run you test against cross platform and cross browser:  
 ![Local screen](./media/TC-running.jpg)
 
-* Consolidate output:  
+* Consolidate output:
 ![Local screen](./media/result.jpg)
 
 
@@ -23,7 +23,8 @@
 * BrowserStack Reporting-2: includes video recording of each execution, text logs with screenshot, console logs, Network logs. 
 ![Local screen](./media/BS-report-2.jpg)
 * BrowserStack test execution video:
-![Video](./media/BS-recording.gif)
+
+  ![Video](./media/BS-recording.gif)
 
 ### Run tests from local machine on BrowserStack
 
