@@ -1,7 +1,5 @@
 # e2e-test-automation
 
-# e2e-test-automation: Based on webDriverIO 
-
 ## Installation
 
 * Node is required
@@ -11,34 +9,24 @@
 
 ### Run tests from local machine on BrowserStack
 
-* Firstly, enter your BrowserStack crendentials and the environment credentials in `wdio/e2e-auth.json`, then save the file locally.
+* Firstly, enter your [BrowserStack](https://www.browserstack.com/) crendentials and the environment credentials in `wdio/e2e-auth.json`, then save the file locally.
 * Secondly, enter a build name (`const build = XXXX;` ) in `wdio/browserstack.conf.js`, then save the file locally. Currently build name contains timestamp of the execution.
 * Run `npm run start:browserstack` will run from local machine against the environment written in `package.json`
-* You can also run specific feature file or a set of feature files as described below. ie. `npm run start:browserstack -- --spec gold`
-* `IMPORTANT - `Do NOT commit these change, after running the tests, make sure you revert both files (`wdio/e2e-auth.json` and `wdio/browserstack.conf.js`)
+* You can also run specific feature file or a set of feature files as described below. ie. `npm run start:browserstack -- --spec TC1`
 
-`IMPORTANT - Only run the following localhost tests if you have access to VADX Git repo and able to run DX locally.`
-
-#### Run tests against DX localhost
+#### Run tests against localhost
 
 * `npm start` - runs all feature files against localhost on local Chrome browser
 
 #### Run one specific feature file
 
-* `npm start -- --spec ./features/points-plus-pay/max-passenger-DOM.feature.ts`
+* `npm start -- --spec ./features/TC1.sayHello.feature.ts`
 
 Note: You can also drag a file from the vscode sidebar into the terminal.
 
 #### Run a set of feature files based on partial filename
 
-* `npm start -- --spec gold` - runs all .feature.ts files with the text `gold` in the filename.
-
-#### Run tests with BrowserStack against local DX environment (localhost:9500)
-
-* Firstly download your `BrowserStackLocal` binary file from https://www.browserstack.com/local-testing#command-line
-* Run `npm run start:bsConnect` and wait for it to start
-* Then simply run `npm run start:bsLocalTest` to run all test on browserstack
-* Additional parameters can be passed to the script similar to `npm start` (see above).
+* `npm start -- --spec TC` - runs all .feature.ts files with the text `TC` in the filename.
 
 ## Unit Testing
 
@@ -53,10 +41,8 @@ By default the feature tests execute against the localhost port 9500 (must be ru
 The URl can be overridden for a specific test run via:
 
 * `npm run start:dev` - runs the full feature suite agains the dev draft
-* `npm run start:dx14` - runs the full feature suite against dx14
-* `npm run start -- --baseUrl https://any-url-can-be-here/VADX/` (note the `--` to pass args to the underlying command)
-
-Note: Do not add the trailing `#/` in the url.
+* `start:browserstack:direct` - runs the full feature suite against the passed base URL from the `package.json`
+* `npm run start -- --baseUrl https://any-url-can-be-here/` (note the `--` to pass args to the underlying command)
 
 ## Stack
 
@@ -74,35 +60,6 @@ After running the tests Webdriver will generate a JSON file in the folder `repor
 Generating the HTML report requires an additional step:
 
 * `npm run report` - this will convert the JSON file to a HTML report with mochawesome and marge.
-
-## Continuous Integration
-
-The project includes a GitLabCI configuration file (.gitlab-ci.yml) which demonstrates how the tests could be executed in a DevOps pipeline. The pipeline uses a Docker image containing Node and Chrome, which is then packaged with the test scripts as a Docker container. The contianer will initiate and run all the test scripts on AWS Fargate against BrowserStack. The file to build the Docker image is `(/packer/e2e.json)`. It runs the commands below:
-
-| Commands | Description                                                           |
-| -------- | --------------------------------------------------------------------- |
-| files    | Copy all test scripts to a location in the image                      |
-| env      | Runs ```export XXX=XXX...``` set environment variables from gitlab    |
-| init     | Runs ```npm install``` to install node_modules                        |
-| inject   | Runs ```npm run add-env-variables``` inject credentials               |
-| headless | Run all tests in headless Chrome on multiple devices                  |
-| report   | generates Mochaawesome HTML report and copy the file to AWS S3 bucket |
-
-The Mochaawesome HTML report for each test run can be accessed with the link below within internal network:
-
-http://va-vadx-dev.s3-website-ap-southeast-2.amazonaws.com/ribe-e2e-[CI_PIPELINE_ID].html
-
-### View logs
-
-1. Navigate to [ADFS](https://fs.virginaustralia.com/adfs/ls/IdpInitiatedSignOn.aspx)
-2. Select `LogDNA` from the drop down list
-3. Login using your normal AD account
-4. Once logged in, select `RESPONSIVE IBE` on the left panel. There are 2 `views` for logs:
-
-| Views                    | Description                                                                                                                                                            |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ribe-e2e-dev             | All logs from e2e tests from the beginning (can be filtered via date/time using control at the bottom)                                                                 |
-| ribe-report-notification | An alert has been configured in this view to send email notification to a list of developers and testers every time a test report has been uploaded sucessfully to S3. |
 
 ## Development
 
@@ -153,21 +110,6 @@ http://va-vadx-dev.s3-website-ap-southeast-2.amazonaws.com/ribe-e2e-[CI_PIPELINE
 
 * Recommended editor is VSCode
 * See ./vscode for browser configuration and recommended extensions
-
-### Working on the code
-
-#### Updating test automation
-
-Take note when you have made changes to DX code below. Automation script need to be updated:
-* ID's
-* Class Names
-* Re-arranging components
-* Merging new Sabre white label code (ie. new DX version)
-
-#### Workflow for updating automation script
-1. Create sub-task from the original ticket
-2. Detail the changes of DX code in the ticket
-3. Create/update test automation scripts (or assign the sub-task to the Test Automation Developer in the team)
 
 
 ## Debugging

@@ -3,7 +3,7 @@
     "username": "",
     "accessKey": ""
   },
-  "vasTestAutoEnvironment": {
+  "testEnvironment": {
     "username": "",
     "password": ""
   }

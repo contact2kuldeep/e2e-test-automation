@@ -9,7 +9,7 @@
     "report:generate": "node ./utils/reporter/merge-result.js ./report wdio-.*-CustomReporter.*\\.log && marge report/wdio-ma-merged.json --reportTitle \"Latest e2e test automation report\" -i -f report.html -o ./report",
     "start": "npm run clear && wdio wdio/base.conf.js",
     "start:parallel": "npm run clear && wdio wdio/start.parallel.conf.js",
-    "start:bstack": "npm run clear && wdio wdio/browserstack.conf.js --baseUrl http://www.google.com",
+    "start:browserstack:direct": "npm run clear && wdio wdio/browserstack.conf.js --baseUrl http://www.google.com",
     "start:browserstack": "npm run clear && wdio wdio/browserstack.conf.js",
     "start:bsLocal": "npm run clear && wdio wdio/browserstack-local.conf.js",
     "start:bsConnect": "./BrowserStackLocal --key xxxxxxxxxxxxxxxx",
