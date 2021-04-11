@@ -22,8 +22,8 @@
 
 * BrowserStack Reporting-2: includes video recording of each execution, text logs with screenshot, console logs, Network logs. 
 ![Local screen](./media/BS-report-2.jpg)
-
-
+* BrowserStack test execution video:
+![Video](./media/BS-recording.gif)
 
 ### Run tests from local machine on BrowserStack
 
@@ -86,7 +86,6 @@ After running the tests Webdriver will generate a JSON file in the folder `repor
 
 
 ## Development
----
 
 | Configuration | Description    |
 | -------- | ----------------------------------------- |
